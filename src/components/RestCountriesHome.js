@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import { NavLink } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import {
@@ -62,26 +63,32 @@ function RestCountriesHome() {
         } else if (state !== null && regionSearch.length > 0) {
             return regionSearch.map((countries) => (
                 <div key={countries.numericCode} className="country-card">
-                    <Card style={{ width: "18rem" }}>
-                        <Card.Img
-                            variant="top"
-                            src={countries.flag}
-                            alt="flag"
-                        />
-                        <Card.Body>
-                            <Card.Title>{countries.name}</Card.Title>
-                            <Card.Text>
-                                Population : {countries.population}
-                            </Card.Text>
-                            <Card.Text>Region : {countries.region}</Card.Text>
-                            <Card.Text>Capital : {countries.capital}</Card.Text>
-                            <a href="/detatiledpage">
-                                <Button variant="primary">Go somewhere</Button>
-                            </a>
-                        </Card.Body>
-                    </Card>
-                    <br />
-                    <br />
+                    <NavLink to="/detailedpage" className="App-link">
+                        <Card
+                            style={{ width: "18rem" }}
+                            className="visibleblack hidewhite"
+                        >
+                            <Card.Img
+                                variant="top"
+                                src={countries.flag}
+                                alt="flag"
+                            />
+                            <Card.Body>
+                                <Card.Title>{countries.name}</Card.Title>
+                                <Card.Text>
+                                    Population : {countries.population}
+                                </Card.Text>
+                                <Card.Text>
+                                    Region : {countries.region}
+                                </Card.Text>
+                                <Card.Text>
+                                    Capital : {countries.capital}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        <br />
+                        <br />
+                    </NavLink>
                 </div>
             ));
         } else if (filter.length > 0) {
@@ -90,55 +97,60 @@ function RestCountriesHome() {
                     key={countriesByRegion.numericCode}
                     className="country-card"
                 >
-                    <Card style={{ width: "18rem" }}>
-                        <Card.Img
-                            variant="top"
-                            src={countriesByRegion.flag}
-                            alt="flag"
-                        />
-                        <Card.Body>
-                            <Card.Title>{countriesByRegion.name}</Card.Title>
-                            <Card.Text>
-                                Population : {countriesByRegion.population}
-                            </Card.Text>
-                            <Card.Text>
-                                Region : {countriesByRegion.region}
-                            </Card.Text>
-                            <Card.Text>
-                                Capital : {countriesByRegion.capital}
-                            </Card.Text>
-                            <a href="/detatiledpage">
-                                <Button variant="primary">Go somewhere</Button>
-                            </a>
-                        </Card.Body>
-                    </Card>
-                    <br />
-                    <br />
+                    <NavLink to="/detailedpage" className="App-link">
+                        <Card style={{ width: "18rem" }}>
+                            <Card.Img
+                                variant="top"
+                                src={countriesByRegion.flag}
+                                alt="flag"
+                            />
+                            <Card.Body>
+                                <Card.Title>
+                                    {countriesByRegion.name}
+                                </Card.Title>
+                                <Card.Text>
+                                    Population : {countriesByRegion.population}
+                                </Card.Text>
+                                <Card.Text>
+                                    Region : {countriesByRegion.region}
+                                </Card.Text>
+                                <Card.Text>
+                                    Capital : {countriesByRegion.capital}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+
+                        <br />
+                        <br />
+                    </NavLink>
                 </div>
             ));
         } else {
             return restApiAllCountriesList.map((countries) => (
                 <div key={countries.numericCode} className="country-card">
-                    <Card style={{ width: "18rem" }}>
-                        <Card.Img
-                            variant="top"
-                            src={countries.flag}
-                            alt="flag"
-                        />
-                        <Card.Body>
-                            <Card.Title>{countries.name}</Card.Title>
-                            <Card.Text>
-                                Population : {countries.population}
-                            </Card.Text>
-                            <Card.Text>Region : {countries.region}</Card.Text>
-                            <Card.Text>Capital : {countries.capital}</Card.Text>
-                            <a href="/detatiledpage">
-                                <Button variant="primary">Go somewhere</Button>
-                            </a>
-                        </Card.Body>
-                    </Card>
-                    <br />
-                    <br />
+                    <NavLink to="/detailedpage" className="App-link">
+                        <Card style={{ width: "18rem" }}>
+                            <Card.Img
+                                variant="top"
+                                src={countries.flag}
+                                alt="flag"
+                            />
+                            <Card.Body>
+                                <Card.Title>{countries.name}</Card.Title>
+                                <Card.Text>
+                                    Population : {countries.population}
+                                </Card.Text>
+                                <Card.Text>
+                                    Region : {countries.region}
+                                </Card.Text>
+                                <Card.Text>
+                                    Capital : {countries.capital}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        <br />
+                        <br />
+                    </NavLink>
                 </div>
             ));
         }

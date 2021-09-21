@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -8,10 +8,6 @@ import Form from "react-bootstrap/Form";
 import {
     FormControl,
     Card,
-    Button,
-    Row,
-    Col,
-    Container,
 } from "react-bootstrap";
 
 function RestCountriesHome() {
@@ -28,15 +24,13 @@ function RestCountriesHome() {
                 setrestApiAllCountriesList(restApiAllCountries.data);
             })
             .catch((error) =>
-                console.log("Errow while fetching the restApiCpuntries")
+                console.log("Errow while fetching the restApiCpuntries", error)
             );
     });
 
     const handleSearchInput = (event) => {
         let searchString = event.target.value;
-        {
-            handleFilterCountry(searchString);
-        }
+         handleFilterCountry(searchString);
     };
 
     const handleFilterCountry = (searchString) => {
